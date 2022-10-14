@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Demo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String line = scanner.nextLine();
+        String[] arr = line.split("");
+int result = 0;
+
+do {
+     result = 0;
+    for(int i = 0; i < arr.length; i++){
+        if(arr[i].charAt(0) >= 48 && arr[i].charAt(0) <=57){
+         result+= Integer.parseInt(arr[i]);
+        }
+        }
+    if(result<= 9){
+        System.out.println(result);
+        break;
+    }else{
+        line = Integer.toString(result);
+        arr = line.split("");
+
+    }
+}while (result > 9);
+
+    }
+
+}
