@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Demo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String lineA = scanner.nextLine();
+        String lineB = scanner.nextLine();
+        double a = Double.parseDouble(lineA);
+        double b = Double.parseDouble(lineB);
+        sum(a, b);
+        subtract(a, b);
+        product(a, b);
+        reminder(a, b);
+        power(a, b);
+    }
+    public static void sum(double a, double b){
+        double sum = a + b;
+        System.out.printf("%.0f\n", sum);
+    }
+
+    public static void subtract(double a, double b){
+        double diff = a - b;
+        System.out.printf("%.0f\n", diff);
+    }
+    public static void product(double a, double b){
+        double product = a * b;
+        System.out.printf("%.0f\n", product);
+    }
+    public static void reminder(double a, double b){
+        double reminder = a % b;
+        System.out.printf("%.0f\n", reminder);
+    }
+    public static void power(double a, double b){
+        double result = Math.pow(a, b);
+        System.out.printf("%.0f", result);
+    }
+}
