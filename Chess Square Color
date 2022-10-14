@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Demo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String labels = scanner.nextLine();
+        String lineB = scanner.nextLine();
+        int rank = Integer.parseInt(lineB);
+
+        if (labels.equals("b") || labels.equals("d") ||
+                labels.equals("f") || labels.equals("h")) {
+            if (rank % 2 != 0) {
+                System.out.println("light");
+            } else {
+                System.out.println("dark");
+            }
+        } else {
+            if (rank % 2 == 0) {
+                System.out.println("light");
+            } else {
+                System.out.println("dark");
+            }
+        }
+    }
+}
