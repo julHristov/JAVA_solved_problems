@@ -1,4 +1,8 @@
-# homework9_03 includes JAVA homework problems. For example:
+
+JAVA_solved_problems
+Here are some solved problems:
+
+For example:
 Biblioteque: 
 Annie goes to her hometown after a very long period outside the country. On her way home, she sees her grandmother's old library and 
 remembers her favorite book. Help Annie by writing a program in which you enter the search from her book (text). 
