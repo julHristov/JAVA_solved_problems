@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Game {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] number = scanner.nextLine().split("");
+
+        int biggestResult = 0;
+        int sum = 0;
+
+        for(int i = 0; i < number.length; i++){
+            sum+= Integer.parseInt(number[i]);
+        }
+        if(sum > biggestResult){
+            biggestResult = sum;
+        }
+        sum = 1;
+
+        for(int i = 0; i < number.length; i++){
+            sum*= Integer.parseInt(number[i]);
+        }
+        if(sum > biggestResult){
+            biggestResult = sum;
+        }
+        sum = 0;
+        for(int i = 0; i < number.length; i++){
+            sum = Integer.parseInt(number[i]) +
+                    Integer.parseInt(number[i + 1]) * Integer.parseInt(number[number.length - 1]);
+            break;
+        }
+        if(sum > biggestResult){
+            biggestResult = sum;
+        }
+        for(int i = 0; i < number.length; i++){
+            sum = Integer.parseInt(number[i]) *
+                    Integer.parseInt(number[i + 1]) + Integer.parseInt(number[number.length - 1]);
+            break;
+        }
+        if(sum > biggestResult){
+            biggestResult = sum;
+        }
+        System.out.println(biggestResult);
+    }
+}
