@@ -1,0 +1,25 @@
+
+//Write a method that reverses the digits of a given decimal number.
+//Input:
+//On the first line you will receive a number
+//Output:
+//Print the given number with reversed digits
+//Sample tests
+//Input	Output
+//256	    652
+//123.45	54.321
+
+
+import java.util.Scanner;
+
+public class ReverseNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] array = scanner.nextLine().split("");
+        String[] outPutArr = new String[array.length];
+        for(int i = 0; i < array.length; i++){
+            outPutArr[outPutArr.length - 1 - i] = array[i];
+        }
+        System.out.println(String.join("", outPutArr));
+    }
+}
