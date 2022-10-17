@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class HeaviestWord {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String number = scanner.nextLine();
+        int wordsCount = Integer.parseInt(number);
+
+        int maxSum = 0;
+        String heviestWord = "";
+
+        for(int i = 0; i < wordsCount; i++){
+            String current = scanner.nextLine();
+            char[] charArray = current.toCharArray();
+            int sum = 0;
+            for(int j = 0; j < charArray.length; j++){
+                char currentChar = charArray[j];
+                char toLowerChar = Character.toLowerCase(currentChar);
+                int ascii = toLowerChar;
+                int weight = toLowerChar - 96;
+                sum+=weight;
+            }
+            if(sum > maxSum){
+                maxSum = sum;
+                heviestWord = new String(charArray);
+            }
+        }
+        System.out.printf("%d %s", maxSum, heviestWord);
+    }
+}
