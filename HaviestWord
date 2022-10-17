@@ -3,16 +3,24 @@ import java.util.Scanner;
 public class HeaviestWord {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        
+        //TAKE INPUT
+        
         String number = scanner.nextLine();
         int wordsCount = Integer.parseInt(number);
 
         int maxSum = 0;
         String heviestWord = "";
 
+        //TAKE CURRENT INPUT SRTING, CONVERT FROM STRING TO CHARARRAY
+        
         for(int i = 0; i < wordsCount; i++){
             String current = scanner.nextLine();
             char[] charArray = current.toCharArray();
             int sum = 0;
+            
+        //THAN TAKE EVERY CHAR AND CALCULATE ITS WEIGTH - a,A == 1... z,Z == 26;
+
             for(int j = 0; j < charArray.length; j++){
                 char currentChar = charArray[j];
                 char toLowerChar = Character.toLowerCase(currentChar);
