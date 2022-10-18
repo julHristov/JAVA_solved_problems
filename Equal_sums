@@ -1,0 +1,32 @@
+//This program compares the sum of integers at an even position with the sum of integers at an odd position
+//and than prints the number the sums of which are equal;
+
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int startNum = Integer.parseInt(scanner.nextLine());
+        int endNum = Integer.parseInt(scanner.nextLine());
+
+        for(int i = startNum; i <=endNum; i++){
+            int sumEven = 0;
+            int sumOdd = 0;
+
+            char[] arr = ("" + i).toCharArray();
+            for (int j = 0; j < arr.length; j++){
+                int number = Integer.parseInt(String.valueOf(arr[j]));
+                if(j % 2 ==0){
+                    sumEven+= number;
+                }else{
+                    sumOdd+=number;
+                }
+            }
+            if(sumEven == sumOdd){
+                System.out.print(i + " ");
+            }
+        }
+    }
+}
