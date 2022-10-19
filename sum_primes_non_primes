@@ -1,0 +1,53 @@
+//A program that prints the sum of prime numbers and the sum of non-prime numbers:
+
+import java.util.Scanner;
+
+public class SumPrimeNonPrime {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String line = scanner.nextLine();
+
+        int sumPrimes = 0;
+        int sumNonPrimes = 0;
+
+        while (!line.equals("stop")){
+            int currentNumber = Integer.parseInt(line);
+
+            if(currentNumber == 0){
+                line = scanner.nextLine();
+                continue;
+            }
+            if(currentNumber >0){
+               if(currentNumber == 1){
+                   sumPrimes+=currentNumber;
+               }
+               if(currentNumber == 2){
+                   sumPrimes+=currentNumber;
+               }
+               if(currentNumber != 1 && currentNumber != 2){
+                   int counter = 0;
+                   boolean isPrime = true;
+                   for(int i = 1; i <= currentNumber; i++){
+
+                       if (currentNumber % i == 0){
+                           counter++;
+                           if(counter > 2){
+                               isPrime = false;
+                           }
+                       }
+                   }
+                   if(isPrime){
+                       sumPrimes+=currentNumber;
+                   }else{
+                       sumNonPrimes+=currentNumber;
+                   }
+               }
+            }else{
+                System.out.println("Number is negative.");
+            }
+            line = scanner.nextLine();
+        }
+        System.out.printf("Sum of all prime numbers is: %d\n", sumPrimes);
+        System.out.printf("Sum of all non prime numbers is: %d", sumNonPrimes);
+    }
+}
