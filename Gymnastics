@@ -1,0 +1,75 @@
+//The program calculates the points from 
+//rhythmic gymnastics competition depending on the country and type of appliances
+
+import java.util.Scanner;
+
+public class MovieIncome {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String country = scanner.nextLine();
+        String type = scanner.nextLine();
+
+        double total = 0;
+        double diff = 0;
+        double percent = 0;
+        double points = 20;
+
+        switch (type){
+            case "ribbon":
+                if(country.equals("Russia")){
+                    total = 9.100 + 9.400;
+                    diff = difference(points, total);
+                    percent = percentage( diff, points);
+                } else if(country.equals("Bulgaria")){
+                    total = 9.600 + 9.400;
+                    diff = difference(points, total);
+                    percent = percentage( diff, points);
+                } else{
+                    total = 9.200 + 9.500;
+                    diff = difference(points, total);
+                    percent = percentage( diff, points);
+                }
+                break;
+            case "hoop":
+                if(country.equals("Russia")){
+                    total = 9.300 + 9.800;
+                    diff = difference(points, total);
+                    percent = percentage( diff, points);
+                } else if(country.equals("Bulgaria")){
+                    total = 9.550 + 9.750;
+                    diff = difference(points, total);
+                    percent = percentage( diff, points);
+                } else{
+                    total = 9.450 + 9.350;
+                    diff = difference(points, total);
+                    percent = percentage( diff, points);
+                }
+                break;
+            case "rope":
+                if(country.equals("Russia")){
+                    total = 9.600 + 9.000;
+                    diff = difference(points, total);
+                    percent = percentage( diff, points);
+                } else if(country.equals("Bulgaria")){
+                    total = 9.500 + 9.400;
+                    diff = difference(points, total);
+                    percent = percentage( diff, points);
+                } else{
+                    total = 9.700 + 9.150;
+                    diff = difference(points, total);
+                    percent = percentage( diff, points);
+                }
+                break;
+        }
+        System.out.printf("The team of %s get %.3f on %s.\n", country, total, type);
+        System.out.printf("%.2f%%", percent);
+    }
+    public static double difference(double points, double total){
+        double diff = points - total;
+        return diff;
+    }
+    public static double percentage(double diff, double points){
+        double percent = diff/points*100;
+        return percent;
+    }
+}
