@@ -1,0 +1,48 @@
+//This program calculates the movie with the highest rating 
+//and the movie with the lowest rating
+//Input example: 
+3
+Interstellar
+8.5
+Dangal
+8.3
+Green Book
+8.2
+//Output:
+Interstellar is with highest rating: 8.5
+Green Book is with lowest rating: 8.2
+Average rating: 8.3
+
+import java.util.Scanner;
+
+public class MovieRaiting {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int movieNumber = Integer.parseInt(scanner.nextLine());
+
+        double maxRating = Integer.MIN_VALUE;
+        double minRating = Integer.MAX_VALUE;
+        String movieWithMaxRating = "";
+        String movieWithMinRating = "";
+        int ratingsCounter = 0;
+        double sumOfRatings = 0;
+
+        for(int i = 0; i < movieNumber; i++){
+            String movieName = scanner.nextLine();
+            double rating = Double.parseDouble(scanner.nextLine());
+            sumOfRatings+=rating;
+            if(rating > maxRating){
+                maxRating = rating;
+                movieWithMaxRating = movieName;
+            }
+            if(rating < minRating){
+                minRating = rating;
+                movieWithMinRating = movieName;
+            }
+        }
+        double avgRatings = sumOfRatings / movieNumber;
+        System.out.printf("%s is with highest rating: %.1f\n", movieWithMaxRating, maxRating);
+        System.out.printf("%s is with lowest rating: %.1f\n", movieWithMinRating, minRating);
+        System.out.printf("Average rating: %.1f", avgRatings);
+    }
+}
