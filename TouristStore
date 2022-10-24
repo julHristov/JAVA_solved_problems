@@ -1,0 +1,54 @@
+//Calculate the sum of equipment and if the budget is enough. Every third product is a half price;
+//Example input:
+153.20
+Backpack
+25.20
+Shoes
+54
+Sunglasses
+30
+Stop
+//Output:
+You bought 3 products for 94.20 leva.
+
+import java.util.Scanner;
+
+public class TouristStore {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double budget = Double.parseDouble(scanner.nextLine());
+        double copyBudget = budget;
+        String inputLine = scanner.nextLine();
+
+        int productCounter = 0;
+
+        boolean isOutOfBudget = false;
+
+        double diff = 0;
+
+        double sumOfProducts = 0;
+        while (!inputLine.equals("Stop")){
+            String product = inputLine;
+            productCounter++;
+            double productPrice = Double.parseDouble(scanner.nextLine());
+
+            if(productCounter % 3 == 0){
+                productPrice/=2;
+            }
+
+            budget-=productPrice;
+
+            if(budget < 0){
+                isOutOfBudget = true;
+                break;
+            }
+            inputLine = scanner.nextLine();
+        }
+        if(isOutOfBudget){
+            System.out.println("You don't have enough money!");
+            System.out.printf("You need %.2f leva!\n", Math.abs(budget));
+        }else{
+            System.out.printf("You bought %d products for %.2f leva.", productCounter, Math.abs(budget - copyBudget));
+        }
+        }
+}
