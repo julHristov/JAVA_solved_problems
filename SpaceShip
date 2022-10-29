@@ -1,0 +1,25 @@
+//The program calculates the free space on the spaceship and how many atronauts can be on board;
+import java.util.Scanner;
+
+public class Test {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+      double shipWidth = Double.parseDouble(scanner.nextLine());
+      double shipLength = Double.parseDouble(scanner.nextLine());
+      double shipHeight = Double.parseDouble(scanner.nextLine());
+      double astronautsHeight = Double.parseDouble(scanner.nextLine());
+
+      double spaceShipVolume = shipWidth * shipLength * shipHeight;
+      double roomVolume = (astronautsHeight + 0.40) * 2 * 2;
+
+      double freeSpace = Math.floor(spaceShipVolume/roomVolume);
+
+      if(freeSpace >=3 && freeSpace <=10){
+          System.out.printf("The spacecraft holds %.0f astronauts.", freeSpace);
+      }else if(freeSpace < 3){
+          System.out.println("The spacecraft is too small.");
+      } else if(freeSpace > 10){
+          System.out.println("The spacecraft is too big.");
+      }
+    }
+}
