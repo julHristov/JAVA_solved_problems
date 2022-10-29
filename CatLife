@@ -1,0 +1,66 @@
+//The program calculates the men life months of cat;
+
+import java.util.Scanner;
+
+public class Test {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String catType = scanner.nextLine();
+        String catGender = scanner.nextLine();
+
+        boolean isInvalid = false;
+
+        double catsMounts = 0;
+        switch (catType){
+            case "British Shorthair":
+                if(catGender.equals("m")){
+                    catsMounts = (13 * 12)/6;
+                }else{
+                    catsMounts = (14 * 12)/6;
+                }
+                break;
+            case "Siamese":
+                if(catGender.equals("m")){
+                    catsMounts = (15 * 12)/6;
+                }else{
+                    catsMounts = (16 * 12)/6;
+                }
+                break;
+            case "Persian":
+                if(catGender.equals("m")){
+                    catsMounts = (14 * 12)/6;
+                }else{
+                    catsMounts = (15 * 12)/6;
+                }
+                break;
+            case "Ragdoll":
+                if(catGender.equals("m")){
+                    catsMounts = (16 * 12)/6;
+                }else{
+                    catsMounts = (17 * 12)/6;
+                }
+                break;
+            case "American Shorthair":
+                if(catGender.equals("m")){
+                    catsMounts = (12 * 12)/6;
+                }else{
+                    catsMounts = (13 * 12)/6;
+                }
+                break;
+            case "Siberian":
+                if(catGender.equals("m")){
+                    catsMounts = (11 * 12)/6;
+                }else{
+                    catsMounts = (12 * 12)/6;
+                }
+                break;
+            default: isInvalid = true;
+        }
+        if(isInvalid){
+            System.out.printf("%s is invalid cat!", catType);
+        } else{
+            catsMounts = Math.floor(catsMounts);
+            System.out.printf("%.0f cat months", catsMounts);
+        }
+    }
+}
