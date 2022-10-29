@@ -1,0 +1,25 @@
+//The program calculates the price for delivery of paint, brushes and gloves; 
+
+import java.util.Scanner;
+
+public class Test {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int numberPaintBoxes = Integer.parseInt(scanner.nextLine());
+        int paperRolls = Integer.parseInt(scanner.nextLine());
+        double handsPrice = Double.parseDouble(scanner.nextLine());
+        double brushPrice = Double.parseDouble(scanner.nextLine());
+
+        double paintPrice = numberPaintBoxes * 21.50;
+        double paperRollsPrice = paperRolls * 5.20;
+
+        double numberOfHands = Math.ceil(paperRolls * 0.35);
+        double finalHandsPrice = handsPrice * numberOfHands;
+        double numbersOfBrushes = Math.floor(numberPaintBoxes * 0.48);
+        double finalBrushesPrice = brushPrice * numbersOfBrushes;
+
+        double totalSum = paintPrice + paperRollsPrice + finalHandsPrice + finalBrushesPrice;
+        double deliveryCost = totalSum/15;
+        System.out.printf("This delivery will cost %.2f lv.", deliveryCost);
+    }
+}
