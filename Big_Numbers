@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class BigNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String line = scanner.nextLine();
+        String[] arraysSize = line.split(" ");
+        int arrLength1 = Integer.parseInt(arraysSize[0]);
+        int arrLength2 = Integer.parseInt(arraysSize[1]);
+
+        String[] arr1 = scanner.nextLine().split(" ");
+        String[] arr2 = scanner.nextLine().split(" ");
+
+        String[] biggerArr;
+        String[] smallestArr;
+
+        if(arrLength1 > arrLength2){
+            biggerArr = arr1;
+            smallestArr = arr2;
+        }else{
+            biggerArr = arr2;
+            smallestArr = arr1;
+        }
+
+        int[] resultArray = new int[biggerArr.length];
+        int reminder = 0;
+
+        for (int i = 0; i < biggerArr.length; i++){
+            int sum = 0;
+            int currentNum1 = Integer.parseInt(biggerArr[i]);
+            int currentNum2;
+            if(i > smallestArr.length - 1){
+                currentNum2 = 0;
+            }else{
+                currentNum2 = Integer.parseInt(smallestArr[i]);
+            }
+            sum = currentNum1 + currentNum2 + reminder;
+            if(sum > 9){
+                resultArray[i] = sum % 10;
+                reminder = sum / 10;
+            }else{
+                resultArray[i] = sum;
+                reminder = 0;
+            }
+        }
+        for (int i : resultArray){
+            System.out.print(i + " ");
+        }
+
+    }
+}
