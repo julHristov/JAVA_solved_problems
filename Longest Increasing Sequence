@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class IncreasingSequence {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String line = scanner.nextLine();
+        int number = Integer.parseInt(line);
+        int[] array = new int[number];
+        int maxSequence = 1;
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < number; i++) {
+            int currentNumber = scanner.nextInt();
+            array[i] = currentNumber;
+        }
+        for (int i = 0; i < array.length -1; i++) {
+            int current = array[i];
+            if(current < array[i + 1]){
+                maxSequence++;
+                if (maxSequence > max){
+                    max = maxSequence;
+                }
+            }else{
+                if (maxSequence > max){
+                    max = maxSequence;
+                }
+                maxSequence = 1;
+            }
+        }
+        System.out.println(max);
+    }
+
+}
